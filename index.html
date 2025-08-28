@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PANDA smart — Адаптивная версия на Tailwind CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.panda-scanner.com/uploads/logo2.png">
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+        }
+        @layer components {
+            /* Стили для фоновых изображений и псевдоэлементов, которые сложно реализовать утилитами */
+            .video-section-bg {
+                background-image: url(/style/global/img/single_top_bg.png);
+            }
+            .faster-section-bg {
+                background-image: url(PANDA%20smart_files/faster_bg.png);
+                background-repeat: no-repeat;
+            }
+            .plug-play-title::before {
+                content: '';
+                position: absolute;
+                width: 414px;
+                left: -55px;
+                bottom: -15px;
+                z-index: -1;
+                background-image: url('PANDA%20smart_files/faster_icon4.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .plug-play-title::after {
+                content: '';
+                position: absolute;
+                right: -55px;
+                bottom: -17px;
+                width: 100px; /* Примерная ширина, чтобы изображение не было слишком большим */
+                height: 100px; /* Примерная высота */
+                background-image: url('PANDA%20smart_files/faster_icon3.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            @media (max-width: 1024px) {
+                .plug-play-title::before, .plug-play-title::after {
+                    display: none;
+                }
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+<div class="container mx-auto">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/75 backdrop-blur-sm shadow-md">
+        <div class="mx-auto flex max-w-[1550px] items-center justify-between px-4 sm:px-10 h-20 lg:h-24">
+            <figure class="logo">
+                <a href="#"><img src="PANDA%20smart_files/logo3.png" alt="logo" class="h-12 lg:h-16 w-auto"></a>
+            </figure>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex">
+                <ul class="flex items-center space-x-8 text-lg font-medium text-gray-600">
+                    <li><a href="#" class="hover:text-blue-600">Главная</a></li>
+                    <li><a href="#" class="hover:text-blue-600">О нас</a></li>
+                    <li><a href="#" class="text-white bg-blue-500 rounded-full px-4 py-2">Продукты</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Центр помощи</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Поддержка</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="menu-button" class="text-gray-700 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-white z-50">
+            <div class="flex flex-col items-center justify-center h-full">
+                <ul class="flex flex-col items-center space-y-8 text-2xl font-medium text-gray-700">
+                    <li><a href="#" class="hover:text-blue-600">Главная</a></li>
+                    <li><a href="#" class="hover:text-blue-600">О нас</a></li>
+                    <li><a href="#" class="text-blue-600">Продукты</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Центр помощи</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Поддержка</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20 lg:pt-24">
+        <!-- Path Bar -->
+        <section class="absolute top-28 lg:top-36 left-0 right-0 z-10">
+            <div class="mx-auto w-full px-4 lg:max-w-[1290px] lg:px-0">
+                <h1 class="text-3xl lg:text-4xl font-bold text-gray-700">PANDA smart</h1>
+                <div class="text-sm lg:text-base text-gray-600">
+                    <a href="#" class="hover:underline">Главная</a>
+                    <span>&gt;</span>
+                    <a href="#" class="hover:underline">Продукты</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <div class="video-section-bg pt-32 lg:pt-48">
+            <div class="mx-auto max-w-7xl px-4">
+                <div class="flex justify-center items-center">
+                    <div class="hidden lg:block translate-x-20 -translate-y-12"><img src="PANDA%20smart_files/single_top_title_1.png" alt="left"></div>
+                    <div class="z-10 lg:translate-x-12"><img src="PANDA%20smart_files/faster_1.png" alt="center"></div>
+                    <div class="hidden lg:block -translate-x-8 -translate-y-16"><img src="PANDA%20smart_files/single_top_title_2.png" alt="right"></div>
+                </div>
+                <div class="pt-16 lg:pt-24 text-center">
+                    <a href="#" class="text-xl lg:text-3xl font-medium uppercase text-gray-500 hover:text-blue-600">Запросить демо</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="pt-24 lg:pt-48">
+            <div class="mx-auto w-full px-4 lg:max-w-[1200px] lg:px-0">
+                <div class="flex flex-col lg:flex-row lg:space-x-5 mb-5">
+                    <div class="w-full lg:w-1/3 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center mb-5 lg:mb-0">
+                        <a href="#"><img src="PANDA%20smart_files/single_pro_8.png" alt="" class="transition-transform duration-300 hover:scale-110"></a>
+                    </div>
+                    <div class="w-full lg:w-2/3 flex flex-wrap justify-between gap-y-5">
+                        <div class="relative w-full h-auto min-h-[200px] lg:h-[277px] bg-gray-100 rounded-lg overflow-hidden flex items-end justify-center p-4">
+                            <a href="#" class="h-full w-full flex items-end justify-center">
+                                <img src="PANDA%20smart_files/single_pro_9.png" alt="Высокопрочный авиационный алюминиевый сплав" class="transition-transform duration-300 hover:scale-110 max-h-full">
+                                <div class="absolute top-6 left-6 lg:top-[16%] lg:left-10 text-left">
+                                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-600 leading-tight mb-2">Высокопрочный<br>авиационный сплав</h3>
+                                    <span class="text-xl md:text-2xl text-gray-500">Качественно</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="relative w-full md:w-[48.5%] h-[358px] bg-gray-100 rounded-lg overflow-hidden">
+                             <a href="#" class="h-full w-full flex items-end justify-end">
+                                <img src="PANDA%20smart_files/single_pro_7.png" alt="Наконечник нового дизайна" class="transition-transform duration-300 hover:scale-110">
+                                <div class="absolute top-6 left-6 lg:top-[16%] lg:left-10 text-left">
+                                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-600 leading-tight mb-2">Сканнер <br>эргономичный</h3>
+                                    <span class="text-xl md:text-2xl text-gray-500">Удобно</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="w-full md:w-[48.5%] h-[358px] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                            <a href="#"><img src="PANDA%20smart_files/single_pro_10.png" alt="single_pro_10" class="transition-transform duration-300 hover:scale-110"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col lg:flex-row lg:space-x-5">
+                    <div class="relative w-full lg:w-2/3 h-[295px] bg-gray-100 rounded-lg overflow-hidden text-right mb-5 lg:mb-0">
+                        <a href="#" class="h-full w-full flex items-center justify-end">
+                            <img src="PANDA%20smart_files/single_pro_11.png" alt="Проекционный модуль" class="transition-transform duration-300 hover:scale-110">
+                            <div class="absolute top-1/4 left-6 lg:left-14 text-left">
+                                <h3 class="text-2xl md:text-3xl font-semibold text-gray-600 leading-tight mb-2">Внутри проекционный модуль<br>и мощный процессор</h3>
+                                <span class="text-xl md:text-2xl text-gray-500">Технологично</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="relative w-full lg:w-1/3 h-[295px] bg-gray-100 rounded-lg overflow-hidden text-center">
+                        <a href="#" class="h-full w-full flex items-center justify-center">
+                            <img src="PANDA%20smart_files/single_pro_12.png" alt="Турбовентиляторное охлаждение" class="transition-transform duration-300 hover:scale-110">
+                            <div class="absolute bottom-4 left-0 right-0 text-center">
+                                <h3 class="text-2xl md:text-3xl font-semibold text-gray-600 leading-tight mb-2">Охлаждение<br>турбовентиляторами</h3>
+                                <span class="text-xl md:text-2xl text-gray-500">Бесшумно</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Smaller Section -->
+        <div class="pt-24 lg:pt-60 pb-16 lg:pb-40">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="w-full lg:w-1/2 px-6 lg:pl-48 text-center lg:text-left order-2 lg:order-1">
+                    <div class="text-4xl lg:text-5xl font-semibold text-gray-600 mb-5">Меньше и легче</div>
+                    <div class="text-3xl text-gray-500 flex items-center justify-center lg:justify-start mb-2">Всего
+                        <span class="font-extralight text-7xl lg:text-8xl ml-5 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-blue-500 to-teal-400">138</span>
+                        <span>г</span>
+                    </div>
+                    <div class="text-4xl lg:text-5xl font-extralight text-gray-500">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">221</span>x
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-500">27</span>x
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500">25</span>мм
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 mb-8 lg:mb-0">
+                    <a href="#"><img src="PANDA%20smart_files/smaller_1.png" alt="item_img"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Faster Section -->
+        <div class="faster-section-bg pt-20 lg:pt-28">
+            <div class="mx-auto w-full px-4 lg:max-w-[1200px] lg:px-0">
+                <div class="mb-24 lg:mb-48">
+                    <div class="flex flex-col lg:flex-row mx-auto max-w-[1065px]">
+                        <div class="lg:pt-48 order-2 lg:order-1">
+                            <ul>
+                                <li class="relative font-bold pl-4 mb-16 lg:mb-20 z-0">
+                                    <i class="absolute -z-10 -top-1/2 -left-4 lg:-left-8"><img src="PANDA%20smart_files/title_icon_3.png" alt="1 мин" class="w-auto"></i>
+                                    <h4 class="text-4xl lg:text-5xl text-gray-600 leading-none">1 мин</h4>
+                                    <span class="text-2xl lg:text-3xl text-gray-500 font-normal">Сверхбыстрое сканирование</span>
+                                </li>
+                                <li class="relative font-bold pl-4 z-0">
+                                    <i class="absolute -z-10 -top-1/3 -left-4 lg:-left-8"><img src="PANDA%20smart_files/title_icon_4.png" alt="7 мкм" class="w-auto"></i>
+                                    <h4 class="text-4xl lg:text-5xl text-gray-600 leading-none">7 мкм</h4>
+                                    <span class="text-2xl lg:text-3xl text-gray-500 font-normal">Сверхвысокая точность</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order-1 lg:order-2 text-center">
+                            <a href="#"><img src="PANDA%20smart_files/faster_1.png" alt="item_img" class="w-auto inline-block"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center lg:text-right mb-20 lg:mb-32">
+                    <p class="text-2xl lg:text-3xl text-gray-500">Не нужно множество кабелей и розеток!</p>
+                </div>
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="w-full lg:w-auto mb-8 lg:mb-0"><a href="#"><img src="PANDA%20smart_files/plug.png" alt=""></a></div>
+                    <div class="w-full lg:w-auto text-center lg:text-left">
+                        <div class="relative plug-play-title inline-block">
+                            <h3 class="text-4xl lg:text-6xl font-bold text-gray-600 leading-none">Подключи и работай</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rainbow Section -->
+        <div class="pt-48 lg:pt-80">
+            <div class="flex flex-col lg:flex-row mx-auto max-w-[1490px] px-4">
+                <div class="w-full lg:w-1/2 lg:pl-52 mb-12 lg:mb-0 text-center lg:text-left">
+                    <div class="mb-12">
+                        <img src="PANDA%20smart_files/colors_1.png" alt="" class="w-auto mb-4 mx-auto lg:mx-0">
+                        <h4 class="text-3xl text-gray-500">Искусство интраоральных сканеров</h4>
+                    </div>
+                    <ul class="pl-3">
+                        <li class="text-3xl text-gray-500 flex items-center justify-center lg:justify-start mb-5 cursor-pointer group">
+                            <i class="mr-8 transition-transform duration-300 group-hover:scale-125"><img src="PANDA%20smart_files/rain_icon_1.png" alt="Желтый" class="w-auto"></i><span>Желтый</span>
+                        </li>
+                        <li class="text-3xl text-gray-500 flex items-center justify-center lg:justify-start mb-5 cursor-pointer group">
+                            <i class="mr-8 transition-transform duration-300 group-hover:scale-125"><img src="PANDA%20smart_files/rain_icon_2.png" alt="Серебряный" class="w-auto"></i><span>Серебряный</span>
+                        </li>
+                        <li class="text-3xl text-gray-500 flex items-center justify-center lg:justify-start mb-5 cursor-pointer group">
+                            <i class="mr-8 transition-transform duration-300 group-hover:scale-125"><img src="PANDA%20smart_files/rain_icon_3.png" alt="Фиолетовый" class="w-auto"></i><span>Фиолетовый</span>
+                        </li>
+                        <li class="text-3xl text-gray-500 flex items-center justify-center lg:justify-start mb-5 cursor-pointer group">
+                            <i class="mr-8 transition-transform duration-300 group-hover:scale-125"><img src="PANDA%20smart_files/rain_icon_41.png" alt="Синий" class="w-auto"></i><span>Синий</span>
+                        </li>
+                        <li class="text-3xl text-gray-500 flex items-center justify-center lg:justify-start mb-5 cursor-pointer group">
+                            <i class="mr-8 transition-transform duration-300 group-hover:scale-125"><img src="PANDA%20smart_files/rain_icon_5.png" alt="Красный" class="w-auto"></i><span>Красный</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="flex flex-wrap justify-center">
+                        <a href="#" class="w-1/3 sm:w-1/5 text-center transition-transform duration-300 hover:scale-125 p-2"><img src="PANDA%20smart_files/rain_1.png" alt="rain_1" class="w-auto"></a>
+                        <a href="#" class="w-1/3 sm:w-1/5 text-center transition-transform duration-300 hover:scale-125 p-2"><img src="PANDA%20smart_files/rain_2.png" alt="rain_2" class="w-auto"></a>
+                        <a href="#" class="w-1/3 sm:w-1/5 text-center transition-transform duration-300 hover:scale-125 p-2"><img src="PANDA%20smart_files/rain_3.png" alt="rain_3" class="w-auto"></a>
+                        <a href="#" class="w-1/3 sm:w-1/5 text-center transition-transform duration-300 hover:scale-125 p-2"><img src="PANDA%20smart_files/rain_4.png" alt="rain_4" class="w-auto"></a>
+                        <a href="#" class="w-1/3 sm:w-1/5 text-center transition-transform duration-300 hover:scale-125 p-2"><img src="PANDA%20smart_files/rain_5.png" alt="rain_5" class="w-auto"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specification Section -->
+        <div class="pt-24 lg:pt-80">
+            <div class="mx-auto w-full px-4 lg:max-w-[885px] lg:px-0">
+                <h3 class="text-2xl lg:text-3xl font-semibold text-center text-gray-800 mb-8">Спецификация PANDA smart</h3>
+                <p><a href="#"><img src="PANDA%20smart_files/P5-table.jpg" alt="P5 table"></a></p>
+                <div class="h-16 lg:h-32"></div>
+                <p><a href="#"><img src="PANDA%20smart_files/P2-03.png" alt="P2-03"></a></p>
+            </div>
+        </div>
+
+        <!-- Solution Section -->
+        <div class="pt-24 lg:pt-48 pb-10">
+            <div class="mx-auto w-full px-4 lg:max-w-[1200px] lg:px-0">
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_1.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Общий размер <br>221x27x25мм</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_2.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Всего 138г <br>(192г с кабелем)</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_3.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Широкое поле <br>18x16мм</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_4.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Большая глубина <br>0-20мм</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_5.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Высокая точность</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_6.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Высокая достоверность</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_7.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Подключи и работай</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_9.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Датчик движения</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_8.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Кнопочное управление</span>
+                    </div>
+                    <div class="w-1/2 md:w-1/4 text-center mb-12 lg:mb-24 px-2">
+                        <div class="h-24 flex items-center justify-center mb-1"><a href="#"><img src="PANDA%20smart_files/single_ad_10.png" class="w-auto"></a></div>
+                        <span class="text-xl lg:text-2xl text-gray-800 block leading-tight">Турбовентиляторное охлаждение</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-10 pb-10">
+        <div class="mx-auto max-w-4xl px-4">
+            <div class="flex flex-col md:flex-row justify-between text-gray-600 text-center md:text-left">
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <div class="mb-4 flex justify-center md:justify-start"><a href="#"><img src="PANDA%20smart_files/logo3.png" alt="logo" class="h-12 w-auto"></a></div>
+                    <ul>
+                        <li><span>+86-512-67317873</span></li>
+                        <li><a href="mailto:info@panda-scanner.com" class="hover:text-blue-600"><span>info@panda-scanner.com</span></a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-4">Продукты</h2>
+                    <ul>
+                        <li><a href="#" class="hover:text-blue-600">PANDA free</a></li>
+                        <li><a href="#" class="font-bold text-blue-600">PANDA smart</a></li>
+                        <li><a href="#" class="hover:text-blue-600">PANDA P3</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-4">Компания</h2>
+                    <ul>
+                        <li><a href="#" class="hover:text-blue-600">Новости</a></li>
+                        <li><a href="#" class="hover:text-blue-600">О нас</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <h2 class="text-2xl font-bold mb-4">Ресурсы</h2>
+                    <ul>
+                        <li><a href="#" class="hover:text-blue-600">Галерея случаев</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Видео</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Загрузки</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t pt-8 text-center text-gray-500">
+                <span>2023 Panda Scanner | Все права защищены</span><br>
+                <span>Чэнду | Цзыян | Сучжоу | Нинбо | Бразилия | США</span>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeButton = document.createElement('button');
+    
+    closeButton.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+    closeButton.className = 'absolute top-6 right-6 text-gray-700';
+    mobileMenu.appendChild(closeButton);
+
+    const toggleMenu = () => {
+        mobileMenu.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden'); // Блокировка скролла
+    };
+
+    menuButton.addEventListener('click', toggleMenu);
+    closeButton.addEventListener('click', toggleMenu);
+</script>
+
+</body>
+</html>
